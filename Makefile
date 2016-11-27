@@ -17,3 +17,7 @@ syslog.so: $(lib_objs)
 
 %.o: %.c src/lua_syslog.h
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+
+install: syslog.so
+	install -d $(DESTDIR)/usr/lib/lua/5.3
+	install syslog.so $(DESTDIR)/usr/lib/lua/5.3/syslog.so

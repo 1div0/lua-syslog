@@ -1,0 +1,14 @@
+Source: lua-syslog
+Section: interpreters
+Priority: optional
+Maintainer: Christopher Clements <bcnjr5@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: http://0xc9.nt/projects/lua-syslog
+Vcs-Git: git://github.com/bcnjr5/lua-syslog.git
+Vcs-Browser: https://github.com/bcnjr5/lua-syslog
+
+Package: lua5.3-syslog
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Syslog binding for Lua 5.3
