@@ -1,12 +1,16 @@
+LUA_VERSION ?= 5.3
+
 CFLAGS += -fPIC -O2
 CPPFLAGS += -Isrc
 LDFLAGS += -O2
 
-CFLAGS += $(shell pkg-config lua5.3 --cflags-only-other)
-CPPFLAGS += $(shell pkg-config lua5.3 --cflags-only-I)
-LDFLAGS += $(shell pkg-config lua5.3 --libs-only-L)
-LDFLAGS += $(shell pkg-config lua5.3 --libs-only-other)
-LDLIBS += $(shell pkg-config lua5.3 --libs-only-l)
+
+CFLAGS += $(shell pkg-config lua$(LUA_VERSION) --cflags-only-other)
+CPPFLAGS += $(shell pkg-config lua$(LUA_VERSION) --cflags-only-I)
+LDFLAGS += $(shell pkg-config lua$(LUA_VERSION) --libs-only-L)
+LDFLAGS += $(shell pkg-config lua$(LUA_VERSION) --libs-only-other)
+LDLIBS += $(shell pkg-config lua$(LUA_VERSION) --libs-only-l)
+
 
 lib_objs := \
   src/lua_syslog.o
@@ -19,5 +23,14 @@ syslog.so: $(lib_objs)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 install: syslog.so
-	install -d $(DESTDIR)/usr/lib/lua/5.3
-	install syslog.so $(DESTDIR)/usr/lib/lua/5.3/syslog.so
+	install -d $(DESTDIR)/usr/lib/lua/$(LUA_VERSION)
+	install syslog.so $(DESTDIR)/usr/lib/lua/$(LUA_VERSION)/syslog.so
+
+debpkg: debian/control
+	debuild
+
+debian/control: debian/control.in
+	sed s/_lua_version_/$(LUA_VERSION)/g < debian/control.in > debian/control
+
+.PHONY: debpkg install
+.SECONDARY: $(lib_objs)

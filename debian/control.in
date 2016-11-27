@@ -8,7 +8,7 @@ Homepage: http://0xc9.net/projects/lua-syslog
 Vcs-Git: git://github.com/bcnjr5/lua-syslog.git
 Vcs-Browser: https://github.com/bcnjr5/lua-syslog
 
-Package: lua5.3-syslog
+Package: lua_lua_version_-syslog
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Syslog binding for Lua 5.3
+Description: Syslog binding for Lua _lua_version_
