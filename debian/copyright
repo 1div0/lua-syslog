@@ -2,7 +2,7 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: lua-syslog
 
 Files: *
-Copyright: 2016-2017 Brian Nash <bcnjr5@gmail.com>
+Copyright: 2016-2017 Christopher Clemants <bcnjr5@gmail.com>
 License: GPL-3.0+
 
 License: GPL-3.0+
