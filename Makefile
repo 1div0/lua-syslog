@@ -26,11 +26,5 @@ install: syslog.so
 	install -d $(DESTDIR)/usr/lib/lua/$(LUA_VERSION)
 	install syslog.so $(DESTDIR)/usr/lib/lua/$(LUA_VERSION)/syslog.so
 
-debpkg: debian/control
-	debuild
-
-debian/control: debian/control.in
-	sed s/_lua_version_/$(LUA_VERSION)/g < debian/control.in > debian/control
-
-.PHONY: debpkg install
+.PHONY: install
 .SECONDARY: $(lib_objs)
