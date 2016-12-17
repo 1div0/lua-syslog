@@ -1,11 +1,5 @@
-lua-syslog (1.0.1) stable; urgency=critical
-
-  * Fixed debian package files.
-
- -- Christopher Clements <bcnjr5@gmail.com>  Wed, 14 Dec 2016 18:51:09 -0500
-
 lua-syslog (1.0.0) stable; urgency=low
 
   * Initial Release.
 
- -- Christopher Clements <bcnjr5@gmail.com>  Sun, 27 Nov 2016 11:09:45 -0500
+ -- Christopher Clements <bcnjr5@gmail.com>  Fri, 16 Dec 2016 23:08:15 -0500
